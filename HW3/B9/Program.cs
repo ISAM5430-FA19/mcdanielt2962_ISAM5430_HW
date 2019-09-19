@@ -15,13 +15,19 @@ namespace B9
             int reverse = 0;
             WriteLine("Enter a number.");
             int num = Convert.ToInt32(ReadLine());
+            // count the number of leading zeros--
+            // control varibles: count_zero, is_leading
             while (num != 0)
             {
                 bina = bina * 10;
                 bina = bina + num % 2;
                 num = num / 2;
-                
             }
+
+            // 11001101100
+            // count or binary mul
+            // left shift by one bit: * 2 or << 1 (countint the number of bits)
+            // right shift by one bit: / 2 or >> 1
             while (bina!=0)
                 {
                 reverse = reverse * 10;
