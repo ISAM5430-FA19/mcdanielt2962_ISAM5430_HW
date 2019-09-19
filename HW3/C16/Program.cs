@@ -11,31 +11,25 @@ namespace C16
     {
         static void Main(string[] args)
         {
-            WriteLine("Please enter a number.");
+
+            WriteLine("Enter a number.");
             int n = Convert.ToInt32(ReadLine());
-            int iter, num,z,mult ; //where num is the number of numbers per line. and where z is number of zeros printed
-           // int prvnum = 1;
-            for (iter=1;iter<=n;iter++)
+            int iter, num, z; //where iter is the iteration, num is the number of numbers, and z is the number of zeros.
+            for (iter = 1; iter <= n; iter++)
             {
-                for (z = 1; z <= n-iter; z++)
+                for (z = 1; z <= n - iter; z++)
                 {
                     Write("0,");
-                   
+
                 }
-                for (num=1;num<=iter;num++)//cannot figure out how to update each position in 3,2,1. i can get 001,012,123
+
+                for (num = iter; num >= 1; num--)
                 {
-
-
-                    
-                    Write((num * iter) + ",");
-                    
-                    
-                    
+                    Write(num+",");
                 }
                 WriteLine();
             }
-                
-                
-        }
+                      
+        }   
     }
 }
