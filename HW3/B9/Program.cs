@@ -11,52 +11,35 @@ namespace B9
     {
         static void Main(string[] args)
         {
-            int number;
-            WriteLine("Enter a Number : ");
-            number = int.Parse(Console.ReadLine());
-            int orgnum = number;
-            int q;
-            string rem = "";
-            while (number >= 1)
+            int num, iter, var, count;
+            WriteLine("Enter an integer.");
+            num = Convert.ToInt32(ReadLine());
+            count = 0;
+            for (iter = num; iter >= 0; iter--) //counts the number of bits
             {
-                q = number / 2;
-                rem += (number % 2).ToString();
-                number = q;
+                count += 1;
+                iter /= 2;
+                
             }
-            string binary = "";
-            for (int i = rem.Length - 1; i >= 0; i--)
+            while (count % 8 != 0)//adds leading zeros to fill out the byte
             {
-                binary = binary + rem[i];
-            }
-            WriteLine("The Binary format for {0} is {1}", orgnum, binary);
-            ReadLine();
-
-            /*int bina = 0;
-            int reverse = 0;
-            WriteLine("Enter a number.");
-            int num = Convert.ToInt32(ReadLine());
-            // count the number of leading zeros--
-            // control varibles: count_zero, is_leading
-            while (num != 0)
-            {
-                bina = bina * 10;
-                bina = bina + num % 2;
-                num = num / 2;
+                count += 1;
+                
             }
 
-            // 11001101100
-            // count or binary mul
-            // left shift by one bit: * 2 or << 1 (countint the number of bits)
-            // right shift by one bit: / 2 or >> 1
-            while (bina!=0)
+            for (iter = count-1; iter >= 0; iter--)//iter=count-1 because iteration 0 counts as the first bit
+            {
+                var = num >> iter;
+                if (Convert.ToBoolean(var & 1))
                 {
-                reverse = reverse * 10;
-                reverse = reverse + bina % 10;
-                bina = bina / 10;
-               
+                    Write("1");
+                }
+                else
+                {
+                    Write("0");
+                }
             }
-        
-            WriteLine($"The binary for your number is {reverse}.");*/
+            WriteLine();
         }
     }
 }
