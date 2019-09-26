@@ -11,7 +11,27 @@ namespace B9
     {
         static void Main(string[] args)
         {
-            int bina = 0;
+            int number;
+            WriteLine("Enter a Number : ");
+            number = int.Parse(Console.ReadLine());
+            int orgnum = number;
+            int q;
+            string rem = "";
+            while (number >= 1)
+            {
+                q = number / 2;
+                rem += (number % 2).ToString();
+                number = q;
+            }
+            string binary = "";
+            for (int i = rem.Length - 1; i >= 0; i--)
+            {
+                binary = binary + rem[i];
+            }
+            WriteLine("The Binary format for {0} is {1}", orgnum, binary);
+            ReadLine();
+
+            /*int bina = 0;
             int reverse = 0;
             WriteLine("Enter a number.");
             int num = Convert.ToInt32(ReadLine());
@@ -36,7 +56,7 @@ namespace B9
                
             }
         
-            WriteLine($"The binary for your number is {reverse}.");
+            WriteLine($"The binary for your number is {reverse}.");*/
         }
     }
 }
