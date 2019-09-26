@@ -17,6 +17,12 @@ namespace D2
             int prvnum = 0;//D.2.8
             int iter = 0;//D.2.8
             int maxcount = 0;//D.2.9
+            int maxnum = 0;//D.2.10
+            int minnum = 0;//D.2.10
+            int sumcntavg = 0;//D.2.10
+            int countcntnum = 0;//D.2.10            
+            int runningsum = 0;//D.2.10
+            int runningcount = 0;//D.2.10
 
             while (iter<6)
             {
@@ -25,6 +31,8 @@ namespace D2
                 if (iter==0)
                 {
                     prvnum = num;
+                    maxnum = num;//D.2.10
+                    minnum = num;//D.2.10
                     count += 1;
                     
                 }
@@ -54,18 +62,30 @@ namespace D2
                     }
                 
                 }
-                WriteLine(count);
+                if (num == maxnum && num > minnum)//D.2.10
+                {
+                    runningsum = num + maxnum;
+                    runningcount += 1;
+                }
+                else if (num > maxnum && num > minnum)//D.2.10
+                {
+                    maxnum = num;
+                    sumcntavg += runningsum;
+                    countcntnum += runningcount;
+                    runningsum = num;
+                    runningcount = 1;
+                }
+
                 iter += 1;                
             }
             if (count > 1)//determine if we the last iteration creates a clump.
             {
                 clumps += 1;
             }
-            
             WriteLine($"The number of clumps is {clumps}.");
             WriteLine($"The max count of a clump is {maxcount}.");
-
-
+            WriteLine($"The center average is {sumcntavg / countcntnum}.");//D.2.10
         }
+        
     }
 }
