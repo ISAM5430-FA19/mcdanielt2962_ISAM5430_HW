@@ -25,9 +25,9 @@ namespace C6
             char smoothletter = 'A';
             bool smooth = true;
             bool alternating = true;
-            char letter1 = 'A';
-            char letter2 = 'A';
-            char letter3 = 'A';
+            char letter1 = 'A';//f
+            char letter2 = 'A';//f
+            char letter3 = 'A';//f
 
            
 
