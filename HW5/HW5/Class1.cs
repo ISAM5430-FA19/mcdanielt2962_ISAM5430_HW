@@ -13,7 +13,7 @@ namespace HW5.B
         public Account(string acctName, decimal initialBalance)
         {
             Name = acctName;
-            balance = initialBalance;
+            Balance = initialBalance;
         }
         public decimal Balance
         {
