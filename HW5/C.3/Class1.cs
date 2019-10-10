@@ -123,7 +123,7 @@ namespace C._3
         }
         public override string ToString()
         {
-            return ($"The amount is ${_amount}");
+            return ($"The amount is {_amount.ToString("C")}");
         }
     }
 }
